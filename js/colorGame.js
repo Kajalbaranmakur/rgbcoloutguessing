@@ -21,8 +21,9 @@ function init(){
 			modeButtons[1].classList.remove("selected");
 			this.classList.add("selected");
 			this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+			score = 0; matchs = 0;
 			reset();
-            count = (numSquares-1); score = 0; matchs = 0;
+            count = (numSquares-1); 
             totalScore.textContent = score;
             matchNo.textContent = matchs;
 		});
