@@ -20,10 +20,9 @@ function init(){
 			modeButtons[0].classList.remove("selected");
 			modeButtons[1].classList.remove("selected");
 			this.classList.add("selected");
-			this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
-			score = 0; matchs = 0;
+			this.textContent === "Easy" ? numSquares = 3: numSquares = 6;		
 			reset();
-            count = (numSquares-1); 
+            count = (numSquares-1); score = 0; matchs = 0;
             totalScore.textContent = score;
             matchNo.textContent = matchs;
 		});
@@ -37,9 +36,11 @@ function init(){
 	             resultDisplay.textContent = "Correct!";
 	             if(squares[0].style.background != squares[1].style.background){
 	             	score = score + count;
+	             	matchs = matchs + 1;
 	             }
 	             if((squares[0].style.background === "rgb(35, 35, 35)")&&(squares[1].style.background === "rgb(35, 35, 35)")){
                     score = score + count;
+                    matchs = matchs + 1;
 	             }
 	             changeColor(pickedColor);
 	             resetButton.textContent = "Play Again";
@@ -63,7 +64,6 @@ resetButton.addEventListener("click",function(){
 	reset();
 })
 function reset(){
-	matchs = matchs + 1;
 	colors = generateRandomColor(numSquares);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
